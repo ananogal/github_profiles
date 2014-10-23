@@ -6,28 +6,33 @@
 				<input type="text" id="profile_name" placeholder="Enter a github profile"></input>
 				<a href="#" id="fetch_github_profile"> Fetch</a>
 			</section>
-			<section>
-				<article>
-					<header>
-						<img/>
-						<h1></h1>
-						<h2></h2>
-					</header>
-					<p>
-						<strong id="followers"> followers</strong>
-						<strong id="repos"> public repos</strong>
-					</p>
-				</article>
+			<section id="profiles">
 			</section>
 		</main>
+		<template id="profileTemplate">
+			<article>
+					<header>
+						<img src="{{avatar_url}}"/>
+						<h1>{{name}}</h1>
+						<h2>{{login}}</h2>
+					</header>
+					<p>
+						<strong id="followers">{{followers}} followers</strong>
+						<strong id="repos">{{public_repos}} public repos</strong>
+					</p>
+				</article>
+		</template>
 		<script src="jquery-2.1.1.min.js"></script>
 		<script src="handlebars.js"></script>
 		<script type="text/javascript">
 			$('#fetch_github_profile').on('click', function(){
 				var profile_name = $('#profile_name').val();
-				$.get("https://api.github.com/users/" + profile_name, function(data){
-					console.log(data.name);
+				var source = $('#profileTemplate').html();
+				var template = Handlebars.compile(source);
+				$.get("https://api.github.com/users/" + profile_name, function(gitHubProfile){
+					$('#profiles').append(template(gitHubProfile));
 				});
+				$("#profile_name").val('');
 			});
 		</script>
 	</body>
