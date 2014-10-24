@@ -25,14 +25,13 @@
 		</template>
 		<script src="jquery-2.1.1.min.js"></script>
 		<script src="handlebars.js"></script>
+		<script src="keys.js"></script>
 		<script type="text/javascript">
 			$('#fetch_github_profile').on('click', function(){
 				var profile_name = $('#profile_name').val();
 				var source = $('#profileTemplate').html();
 				var template = Handlebars.compile(source);
-				var gitHubClient = ;
-				var gitHubSecret = ;
-				$.get("https://api.github.com/users/" + profile_name +"?client_id=" + gitHubClient +"&client_secret=" + gitHubSecret, function(gitHubProfile){
+				$.get("https://api.github.com/users/" + profile_name +"?client_id=" + keys.client_id +"&client_secret=" + keys.client_secret, function(gitHubProfile){
 					$('#profiles').append(template(gitHubProfile));
 					$('.close_profile').on('click', function(){
 						$(this).closest("article").remove();
