@@ -12,6 +12,7 @@
 		<template id="profileTemplate">
 			<article>
 					<header>
+						<a href="#" class="close_profile">X</a>
 						<img src="{{avatar_url}}"/>
 						<h1>{{name}}</h1>
 						<h2>{{login}}</h2>
@@ -29,11 +30,17 @@
 				var profile_name = $('#profile_name').val();
 				var source = $('#profileTemplate').html();
 				var template = Handlebars.compile(source);
-				$.get("https://api.github.com/users/" + profile_name, function(gitHubProfile){
+				var gitHubClient = ;
+				var gitHubSecret = ;
+				$.get("https://api.github.com/users/" + profile_name +"?client_id=" + gitHubClient +"&client_secret=" + gitHubSecret, function(gitHubProfile){
 					$('#profiles').append(template(gitHubProfile));
+					$('.close_profile').on('click', function(){
+						$(this).closest("article").remove();
+					});
 				});
 				$("#profile_name").val('');
 			});
+			
 		</script>
 	</body>
 </html>
