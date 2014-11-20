@@ -5,6 +5,7 @@
 			<section>
 				<input type="text" id="profile_name" placeholder="Enter a github profile"></input>
 				<a href="#" id="fetch_github_profile"> Fetch</a>
+				<p class="error"><p>
 			</section>
 			<section id="profiles">
 			</section>
@@ -23,23 +24,9 @@
 					</p>
 				</article>
 		</template>
-		<script src="jquery-2.1.1.min.js"></script>
-		<script src="handlebars.js"></script>
-		<script src="keys.js"></script>
-		<script type="text/javascript">
-			$('#fetch_github_profile').on('click', function(){
-				var profile_name = $('#profile_name').val();
-				var source = $('#profileTemplate').html();
-				var template = Handlebars.compile(source);
-				$.get("https://api.github.com/users/" + profile_name +"?client_id=" + keys.client_id +"&client_secret=" + keys.client_secret, function(gitHubProfile){
-					$('#profiles').append(template(gitHubProfile));
-					$('.close_profile').on('click', function(){
-						$(this).closest("article").remove();
-					});
-				});
-				$("#profile_name").val('');
-			});
-			
-		</script>
+		<script src="src/jquery-2.1.1.min.js"></script>
+		<script src="src/handlebars.js"></script>
+		<script src="src/keys.js"></script>
+		<script src="src/interface.js"></script>
 	</body>
 </html>
