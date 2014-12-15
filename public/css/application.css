@@ -1,0 +1,82 @@
+body{
+	font-family:Ubuntu;
+}
+
+section{
+	text-align:center;
+	width:50%;
+	margin:2% 25% 2% 25%
+}
+
+form#search{
+	border:1px solid black;
+	border-radius:10px;
+	padding-top:2%;
+	padding-bottom:2%;
+}
+input{
+	font-size: 1em;
+}
+
+input[type=text]{
+	width: 80%;
+}
+
+input[type=submit]{
+	width:15%;
+	margin-left:5px;
+	border-radius:10px;
+}
+
+section#profiles{
+	
+	
+}
+
+.profiles{
+	text-align:left;
+	border:1px solid black;
+	border-radius:10px;
+	padding-top:2%;
+	padding-bottom:2%;
+	margin-bottom:10px;
+}
+
+.avatar{
+	width:120px;
+	height:120px;
+	margin:0px 10px 0px 10px;
+	border:1px solid black;
+	border-radius:10px;
+	/*padding-top:2%;
+	padding-bottom:2%;*/
+}
+
+.profile-data{
+	display:inline-block;
+	vertical-align: top;
+	width: 72%;
+}
+
+p#profile-name{
+	font-size:3em;
+	margin-bottom:5px;
+}
+
+p#profile-username{
+	font-size:2em;
+	margin-bottom:20px;
+}
+p#profile-numbers{
+	font-size:1em;
+}
+
+.delete-profile{
+	display:inline-block;
+	vertical-align: top;
+	margin-left: ;
+}
+
+.delete-profile a{
+	text-decoration:none;
+}
