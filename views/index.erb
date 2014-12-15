@@ -9,6 +9,7 @@
 			<form id="search">
 				<input type="text" id="profile_name" placeholder="Enter a github profile"></input>
 				<input type="submit" id="fetch_github_profile" value="Fetch"/>
+				<p class="error"><p>
 			</form>
 		</section>
 		<section id="profiles">
@@ -33,20 +34,5 @@
 	<script src="./js/jquery-2.1.1.min.js"></script>
 	<script src="/js/handlebars.js"></script>
 	<script src="./js/keys.js"></script>
-	<script type="text/javascript">
-		$('#fetch_github_profile').on('click', function(event){
-			event.preventDefault();
-			var profile_name = $('#profile_name').val();
-			var source = $('#profileTemplate').html();
-			var template = Handlebars.compile(source);
-			$.get("https://api.github.com/users/" + profile_name +"?client_id=" + keys.client_id +"&client_secret=" + keys.client_secret, function(gitHubProfile){
-				$('#profiles').append(template(gitHubProfile));
-				$('.close_profile').on('click', function(){
-					$(this).closest("article").remove();
-				});
-			});
-			$("#profile_name").val('');
-		});
-		
-	</script>
+	<script src="./js/interface.js"></script>
 </body>

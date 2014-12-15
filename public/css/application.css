@@ -80,3 +80,9 @@ p#profile-numbers{
 .delete-profile a{
 	text-decoration:none;
 }
+
+.error{
+	text-align:left;
+	margin:1% 0% 0% 2%;
+	color:red;
+}

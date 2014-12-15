@@ -7,7 +7,6 @@ $(document).ready(function(){
 
 		$.get(url + "?client_id=" + keys.client_id +"&client_secret=" + keys.client_secret)
 			.done(function(gitHubProfile){
-				console.log(gitHubProfile);
 				$('#profiles').append(template(gitHubProfile));
 				$('.close_profile').on('click', function(){
 					$(this).closest("article").remove();
