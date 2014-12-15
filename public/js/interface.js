@@ -5,7 +5,10 @@ $(document).ready(function(){
 		var template = Handlebars.compile(source);
 		 var url ="https://api.github.com/users/" + profile_name;
 
-		$.get(url + "?client_id=" + keys.client_id +"&client_secret=" + keys.client_secret)
+
+// $.get('https://api.github.com/users/' + userName + '?client_id=' + "#{ENV['GUS_ID']}" + '&client_secret=' + "#{ENV['GUS_SECRET']}", function(data)
+
+		$.get(url + "?client_id=" + "#{ENV['GH_ID']}" +"&client_secret=" + "#{ENV['GUS_SECRET']}")
 			.done(function(gitHubProfile){
 				$('#profiles').append(template(gitHubProfile));
 				$('.close_profile').on('click', function(){
