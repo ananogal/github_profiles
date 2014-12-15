@@ -8,7 +8,7 @@ $(document).ready(function(){
 
 // $.get('https://api.github.com/users/' + userName + '?client_id=' + "#{ENV['GUS_ID']}" + '&client_secret=' + "#{ENV['GUS_SECRET']}", function(data)
 
-		$.get(url + "?client_id=" + "#{ENV['GH_ID']}" +"&client_secret=" + "#{ENV['GUS_SECRET']}")
+		$.get(url + "?client_id=" + "#{ENV['GH_ID']}" +"&client_secret=" + "#{ENV['GH_SECRET']}")
 			.done(function(gitHubProfile){
 				$('#profiles').append(template(gitHubProfile));
 				$('.close_profile').on('click', function(){
