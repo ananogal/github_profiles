@@ -1,32 +1,41 @@
-<head></head>
+<head>
+	<link href='http://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet' type='text/css'>
+	<link href='./css/reset.css' rel='stylesheet' type='text/css'>
+	<link href='./css/application.css' rel='stylesheet' type='text/css'>
+</head>
 <body>
 	<main>
 		<section>
-			<input type="text" id="profile_name" placeholder="Enter a github profile"></input>
-			<a href="#" id="fetch_github_profile"> Fetch</a>
+			<form id="search">
+				<input type="text" id="profile_name" placeholder="Enter a github profile"></input>
+				<input type="submit" id="fetch_github_profile" value="Fetch"/>
+			</form>
 		</section>
 		<section id="profiles">
 		</section>
 	</main>
 	<template id="profileTemplate">
-		<article>
-				<header>
-					<a href="#" class="close_profile">X</a>
-					<img src="{{avatar_url}}"/>
-					<h1>{{name}}</h1>
-					<h2>{{login}}</h2>
-				</header>
-				<p>
+		<article class='profiles'>
+			<img src="{{avatar_url}}" class="avatar"/>
+			<article class="profile-data">
+				<p id='profile-name'><label>{{name}}</label></p>
+				<p id='profile-username'><label>{{login}}</label></p>
+				<p id="profile-numbers">
 					<strong id="followers">{{followers}} followers</strong>
 					<strong id="repos">{{public_repos}} public repos</strong>
 				</p>
 			</article>
+			<aside class='delete-profile'>
+				<a href="#" class="close_profile">X</a>
+			</aside>
+		</article>
 	</template>
 	<script src="./js/jquery-2.1.1.min.js"></script>
 	<script src="/js/handlebars.js"></script>
 	<script src="./js/keys.js"></script>
 	<script type="text/javascript">
-		$('#fetch_github_profile').on('click', function(){
+		$('#fetch_github_profile').on('click', function(event){
+			event.preventDefault();
 			var profile_name = $('#profile_name').val();
 			var source = $('#profileTemplate').html();
 			var template = Handlebars.compile(source);
