@@ -13,6 +13,11 @@ Tasks :
 	2 - Add a delete button (or an x) that deletes one profile
 	3 - Handle the situation where the profile could not be found
 
+Technologies used:
+==================
+ - Javascrip
+ - Ajax
+
 How to use it
 ============
 ###In Code
